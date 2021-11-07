@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLICE ME!</title>
+    <style>
+        :root{
+            --black-color: #1E1B1C;
+            --bg-color: #FAA635;
+            --secondary-color:#E4D3C1;
+        }
+        body{
+            background-color: var(--bg-color);
+        }
+        div{
+            display: flex;
+            justify-content: center;
+            padding-top: 30px;
+           
+        }
+        form{
+            background-color: var(--secondary-color);
+            max-width: 350px;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        h3{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+        }
+        textarea{
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            color: rgba(0, 0, 0, 0.425);
+            padding: 8px 10px;
+        }
+        textarea:focus{
+            border: none;
+            outline: none;
+        }
+        button{
+            background-color: var(--black-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form action="#">
+            <h3>What's on your Mind?</h3>
+            <textarea name="" id="input" cols="40" rows="10" placeholder="say somthing">
+            
+            </textarea>
+            <button>Tweet</button>
+        </form>
+    </div>
+
+
+    <script>
+        const input = document.getElementById('input');
+        function handleBlur(e){
+            var updatevalue;
+            updatevalue = input.value
+            
+            input.value = `${updatevalue.slice(0,200)}...`
+            
+        }
+        input.addEventListener('blur',handleBlur)
+    </script>
+</body>
+</html>
